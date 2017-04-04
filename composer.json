@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Usher\\": "src/"
+        }
+    },
+    "require": {
+        "nikic/fast-route": "^1.2",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    }
+}
