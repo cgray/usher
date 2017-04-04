@@ -6,7 +6,12 @@ use Usher\Router;
 use Usher\HttpRoute;
 
 $router = new Router('', [
-  HttpRoute::get('route-name', '/articles/{id:\d+}[/{name}]', 'dispatch-target', ['some-parameter'=>'default']);
+  HttpRoute::get(
+    'route-name', 
+    '/articles/{id:\d+}[/{name}]', 
+    'dispatch-target', 
+    ['some-parameter'=>'default']
+  )
 ]);
 
 $request = new Zend\Diactoros\ServerRequest();
