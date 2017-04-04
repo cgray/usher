@@ -1,6 +1,24 @@
 # Usher
 PSR-7 Router Based on FastRoute
 
+Once configured with any number of named routes the router will accept a PSR-7 Compatible request object 
+and return a immutable copy of it annotated with attributes for route derived values from URL placeholder 
+or defined at the time the route was defined.
+
+In addition a special attribute is set on the Request object called matching_route that contains the
+route object that was matched.  
+
+There is also an API for creating new URI's given a route definition from a route object.
+
+```php
+ $route = HttpRoute::get('route-name', '/users/{user_id}[/{name}]');
+ echo $route->buildUrl(['user_id' => 100);
+ // /users/100
+ echo $route->buildUrl(['user_id' => 100, 'name'=> 'jcleese']);
+ // /users/100/jcleese
+```
+General use for the router is as follows.
+
 ```php
 use Usher\Router;
 use Usher\HttpRoute;
