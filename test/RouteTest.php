@@ -1,6 +1,6 @@
 <?php
-
 namespace Usher\Test;
+
 use Usher\Route;
 use Usher\HttpRoute;
 use PHPUnit\Framework\TestCase;

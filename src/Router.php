@@ -1,5 +1,4 @@
 <?php
-
 namespace Usher;
 
 use FastRoute\RouteCollector;
@@ -10,19 +9,18 @@ use Usher\MethodNotImplementedException;
 
 class Router
 {
-
     private $basePath = '';
     private $routes = [];
     
     public function __construct(string $basePath, array $routes = [])
     {
-        $this->basePath = $basePath;
+        $this->basePath = rtrim($basePath, "/");
         $this->setRoutes(...$routes);
     }
     
     private function setRoutes(Route ...$routes)
     {
-        foreach ($routes as $route){
+        foreach ($routes as $route) {
             $this->addRoute($route);
         }
     }
@@ -65,10 +63,11 @@ class Router
         }
     }
     
-    private function getRouteDispatcher() : RouteDispatcher {
+    private function getRouteDispatcher() : RouteDispatcher
+    {
         return \FastRoute\simpleDispatcher(function (RouteCollector $r) {
             foreach($this->routes as $route) {
-                $r->addRoute($route->getMethod(), $route->getUri(), $route);
+                $r->addRoute($route->getMethod(), $this->basePath.$route->getUri(), $route);
             }
         });       
     }

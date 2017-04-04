@@ -1,12 +1,12 @@
 <?php
-
 namespace Usher;
 
 use Usher\Route;
 
 class HttpRoute extends Route
 {
-    private function __construct(string $name, string $method, string $uri, string $target, array $params = []) {
+    private function __construct(string $name, string $method, string $uri, string $target, array $params = [])
+    {
         parent::__construct($name, $method, $uri, $target, $params);   
     }
     public static function head(string $name, string $uri, string $target, array $params = []) : HttpRoute

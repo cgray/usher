@@ -1,6 +1,7 @@
 <?php
-
 namespace Usher;
+
 use RuntimeException;
 
-class RouteNotFoundException extends RuntimeException {}
+class RouteNotFoundException extends RuntimeException
+{}

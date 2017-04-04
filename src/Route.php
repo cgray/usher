@@ -1,10 +1,10 @@
 <?php
-
 namespace Usher;
 
 use RuntimeException;
 
-class Route {
+class Route
+{
     private $name;
     private $method;
     private $uri;
