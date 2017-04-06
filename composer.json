@@ -1,4 +1,6 @@
 {
+    "name": "cgray/usher",
+    "description": "PSR-7 Router built on FastRoute",
     "autoload": {
         "psr-4": {
             "Usher\\": "src/"
